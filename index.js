@@ -1,3 +1,5 @@
+//The dataset for this project
+
 var finances = [
   ['Jan-2010', 867884],
   ['Feb-2010', 984655],
@@ -86,3 +88,14 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+//Adding a heading for the console
+var heading = 'Financial Analysis' + '\n' + '-------------------';
+console.log(heading)
+
+//TASK 01 - Total Number of Months
+var totalMonths = finances.length;
+console.log('Total Months: ' + totalMonths)
+
+
+
