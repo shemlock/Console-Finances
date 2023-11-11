@@ -1,4 +1,10 @@
-//The dataset for this project
+/* The dataset for this project
+The finances variable is a nested array
+The main array is finances
+Then within the main finances array is multiple sub arrays
+Each sub array has two elements -
+A string containing a date at index 0
+And a number containing that date's revenue at index 1 */
 
 var finances = [
   ['Jan-2010', 867884],
@@ -89,13 +95,58 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-//Adding a heading for the console
+/* Adding a heading for the console.
+   Declaring the heading variable
+   Assigning it with three concatenated strings containing the title, a line break and dashes */
+
 var heading = 'Financial Analysis' + '\n' + '-------------------';
+
+//Printing the heading to the console
+
 console.log(heading)
 
-//TASK 01 - Total Number of Months
+//TASK 01 - Total Number of Months in the dataset
+
+/* Declaring the totalMonths variable
+   Assigning it with the length of the finances array */
+
 var totalMonths = finances.length;
+
+//Printing a string to the console that's concatenated with the totalMonths variable
+
 console.log('Total Months: ' + totalMonths)
 
+//TASK 02 - Total Amount of Profit/Losses over the entire period
+
+/* Declaring the totalAmount variable
+   Assigning it the value of 0 */
+
+var totalAmount = 0;
+
+/* Creating the for loop
+   Initialization:
+      Declaring the i variable and setting the value to 0
+   Condition:
+      totalMonths is the length of the finances array,
+      Set the condition so that the loop will iterate over the finances array,
+      as long as the i is less than totalMonths
+   Increment Expression: 
+      After each loop the i variable will increase by 1,
+      ie it will go onto the next sub array in the finances array */
+      
+/* Defining the code block that'll be run for each iteration of the loop
+   The value of the totalAmount variable will be added to and updated:
+   For each iteration, the finances array is accessed at the position of where the i variable is at,
+   then the second element, the revenue number is accessed using [1]
+   The revenue value will be added to the totalAmounts variable
+   Then on the next iteration the next value will be added to totalAmount and the value is updated. 
+*/
+
+for (var i = 0; i < totalMonths; i++) {
+  totalAmount += finances[i][1];
+}
+
+//Printing a string to the console that's concatenated with the totalAmount variable
+console.log('Total: $' + totalAmount)
 
 
