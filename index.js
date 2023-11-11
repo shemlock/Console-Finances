@@ -211,4 +211,55 @@ console.log('Average Change: ' + averageChanges.toFixed(2));
 
 //TASK 04 - The greatest increase in Profit/Losses (date and amount) over the entire period
 
+/* Assigning the biggestIncrease variable with an array
+   with an empty string as the first element that will store the date
+   and a value of 0 as the second element that will store the increase number */
 
+   var biggestIncrease = ['',0];
+
+/*Creating the for loop for calculating biggest increase in changes
+Initialization: 
+Declaring the i variable and setting the value to 1
+So that it'll start with the second month, 
+as the first month doesn't have a previous month to compare to so there's no change
+Condition: 
+totalMonths is the length of the finances array,
+Set the condition so that the loop will iterate over the finances array,
+as long as the i is less than totalMonths
+Increment Expression: 
+After each loop the i variable will increase by 1,
+ie it will go onto the next sub array in the finances array */
+
+/* Defining the code block that'll be run for each iteration of the loop 
+      Updating the value of the change variable to be
+      the revenue of the current month - finances[i][1]
+      minus the revenue of the previous month 
+      (the previousAmount variable is set to finances[0][1] )
+
+   Creating the if statement to find the biggestIncrease
+      Setting the condition to be if change is greater than
+      the the current value in the second element of the biggestIncrease array
+      If it is then:
+      The biggestIncrease array will be updated to include 
+      the date from the finances array and the change value. 
+   
+   Then setting up the comparison for the next iteration
+   by updating the previousAmount variable to be the
+   revenue of where i is at (ie the current month's revenue) */
+
+
+for (var i=1; i < totalMonths; i++) {
+   change = finances[i][1] - previousAmount;
+   if (change > biggestIncrease[1]) {
+      biggestIncrease = [finances[i][0], change];
+   }
+
+   previousAmount = finances[i][1];
+}
+
+/* Printing strings to the console that are concatenated with each element in the biggestIncrease array
+   The elements are seperated to add brackets and a dollar sign to the number element */
+
+console.log('Greatest Increase in Profits/Losses: ' + biggestIncrease[0] + ' ($' + biggestIncrease[1] + ')');
+
+//TASK 05 - The greatest decrease in Profit/Losses (date and amount) over the entire period
