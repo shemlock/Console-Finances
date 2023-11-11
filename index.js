@@ -123,7 +123,7 @@ console.log('Total Months: ' + totalMonths)
 
 var totalAmount = 0;
 
-/* Creating the for loop
+/* Creating the for loop for calculating the total amount of revenue
    Initialization:
       Declaring the i variable and setting the value to 0
    Condition:
@@ -148,5 +148,67 @@ for (var i = 0; i < totalMonths; i++) {
 
 //Printing a string to the console that's concatenated with the totalAmount variable
 console.log('Total: $' + totalAmount)
+
+//TASK 03 - The average of the changes in Profit/Losses over the entire period
+
+/* Setting the value of previousAmount variable
+   to be the revenue of the first month by
+   accessing the first sub array in the main finances array
+   then accessing the second element at index 1 */
+
+var previousAmount = finances[0][1];
+
+//Initializing the other variables
+var change = 0;
+var totalChanges = 0;
+var averageChanges = 0;
+
+/* Creating the for loop for calculating the changes in revenue month by month
+   Initialization: 
+      Declaring the i variable and setting the value to 1
+      So that it'll start with the second month, 
+      as the first month doesn't have a previous month to compare to so there's no change
+   Condition: 
+      totalMonths is the length of the finances array,
+      Set the condition so that the loop will iterate over the finances array,
+      as long as the i is less than totalMonths
+   Increment Expression: 
+      After each loop the i variable will increase by 1,
+      ie it will go onto the next sub array in the finances array */
+
+/* Defining the code block that'll be run for each iteration of the loop
+      Updating the value of the change variable to be
+      the revenue of the current month - finances[i][1]
+      minus the revenue of the previous month (the previousAmount variable is 
+      set to finances[0][1] )
+
+      Then adding that change to the totalChanges variable
+      Then on the next iteration the next change will be added to 
+      totalChanges and the value is updated
+
+      Then setting up the comparison for the next iteration
+      by updating the previousAmount variable to be the
+      revenue of where i is at (ie the current month's revenue) */
+
+for (var i=1; i < totalMonths; i++) {
+   change = finances[i][1] - previousAmount;
+   totalChanges += change;
+   previousAmount = finances[i][1]
+}
+
+/* Then calculating the average change by 
+   dividing the totalChanges by the totalMonths minus 1 
+   Taking the 1 away because no change could be calculated for the first month
+   Then assinging the result the the averageChanges variable */
+
+averageChanges = totalChanges / (totalMonths - 1);
+
+/* Printing a string to the console that's concatenated with the averagesChanges variable
+   Then using the toFixed method on the averageChanges variable
+   And putting 2 in the brackets to format it to 2 decimal places */
+
+console.log('Average Change: ' + averageChanges.toFixed(2));
+
+//TASK 04 - The greatest increase in Profit/Losses (date and amount) over the entire period
 
 
