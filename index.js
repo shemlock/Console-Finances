@@ -214,7 +214,7 @@ console.log('Average Change: ' + averageChanges.toFixed(2));
 
 /* Assigning the biggestIncrease variable and the biggestDecrease variable with 
    an array with an empty string as the first element that will store the date
-   and a value of 0 as the second element that will store the increase number */
+   and a value of 0 as the second element that will store the increase/decrease number */
 
 var biggestIncrease = ['',0];
 var biggestDecrease = ['',0];
